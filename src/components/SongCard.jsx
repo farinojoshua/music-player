@@ -25,14 +25,17 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
             activeSong?.title === song.title
               ? "flex bg-black bg-opacity-70"
               : "hidden"
-          }`}>
-          <PlayPause
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            song={song}
-            handlePause={handlePauseClick}
-            handlePlay={handlePlayClick}
-          />
+          }`}
+        >
+          <Link to={`/songs/${song?.key}`}>
+            <PlayPause
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              song={song}
+              handlePause={handlePauseClick}
+              handlePlay={handlePlayClick}
+            />
+          </Link>
         </div>
         <img
           alt='song_img'
@@ -51,7 +54,8 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
               song.artists
                 ? `/artists/${song?.artists[0]?.adamid}`
                 : "/top-artists"
-            }>
+            }
+          >
             {song.subtitle}
           </Link>
         </p>
