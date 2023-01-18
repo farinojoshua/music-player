@@ -46,13 +46,15 @@ const SongBar = ({
       </div>
     </div>
     {!artistId ? (
-      <PlayPause
-        isPlaying={isPlaying}
-        activeSong={activeSong}
-        song={song}
-        handlePause={handlePauseClick}
-        handlePlay={() => handlePlayClick(song, i)}
-      />
+      <Link to={`/songs/${song?.key}`}>
+        <PlayPause
+          isPlaying={isPlaying}
+          activeSong={activeSong}
+          song={song}
+          handlePause={handlePauseClick}
+          handlePlay={() => handlePlayClick(song, i)}
+        />
+      </Link>
     ) : null}
   </div>
 );
